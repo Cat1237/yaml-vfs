@@ -51,7 +51,7 @@ module VFS
       def run
         require 'yaml_vfs'
 
-        VFS::FileCollector.new_from_real_headers_dir(@framework_path, @real_header_dir, @real_modules_dir).write_mapping(@output_path)
+        VFS::FileCollector.new_from_real_headers_dir(@framework_path, @real_modules_dir, @real_header_dir).write_mapping(@output_path)
       end
     end
   end
