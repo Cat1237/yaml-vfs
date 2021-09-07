@@ -8,7 +8,7 @@ module VFS
   class FileCollector
     HEADER_FILES_EXTENSIONS = %w[.h .hh .hpp .ipp .tpp .hxx .def .inl .inc].freeze
 
-    attr_reader :framework_path, :real_modules_dir, :real_headers
+    attr_reader :framework_path, :real_modules, :real_headers
 
     def self.new_from_real_headers_dir(framework_path, real_header_dir, real_modules_dir)
       raise ArgumentError, 'real_header_dir must set and exist' if real_header_dir.nil? || !real_header_dir.exist?
@@ -16,15 +16,16 @@ module VFS
       files = Pathname.glob(real_header_dir.join('**').join('*')).select do |file|
         HEADER_FILES_EXTENSIONS.include?(file.extname)
       end
-      new(framework_path, real_modules_dir, files)
+      real_modules = real_modules_dir.glob('module*.modulemap')
+      new(framework_path, real_modules, files)
     end
 
-    def initialize(framework_path, real_modules_dir, real_headers)
+    def initialize(framework_path, real_modules, real_headers)
       @seen = Set.new
       @vfs_writer = YAMLVFSWriter.new
       @real_headers = real_headers
       @framework_path = framework_path
-      @real_modules_dir = real_modules_dir
+      @real_modules = real_modules
     end
 
     def write_mapping(name)
@@ -33,9 +34,10 @@ module VFS
 
       add_write_file
       @vfs_writer.case_sensitive = false
-      path = name.expand_path
+      path = Pathname(name).expand_path
       path = path.join('all-product-headers.yaml') if path.directory?
       stream = @vfs_writer.write
+      path.dirname.mkpath
       File.open(path, 'w') { |f| f.write(stream) }
     end
 
@@ -49,8 +51,8 @@ module VFS
           @vfs_writer.add_file_mapping(path, file)
         end
       }
-      wirte_f.call('Headers', @real_headers) unless @real_headers.empty?
-      wirte_f.call('Modules', real_modules_dir.glob('*.modulemap')) unless @real_modules_dir.nil?
+      wirte_f.call('Headers', real_headers) unless real_headers.empty?
+      wirte_f.call('Modules', real_modules) unless real_modules.empty?
     end
   end
 end
