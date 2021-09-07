@@ -8,10 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Cat1237']
   spec.email         = ['wangson1237@outlook.com']
 
-  spec.summary       = 'Read or write header map file.'
+  spec.summary       = 'A gem which can gen VFS YAML file.'
   spec.description   = %(
-    header_reader lets your read Xcode header map file.
-    header-writer lets your analyze the project pod dependencies and gen header map file for all pods.
+    `vfs yamlwriter` lets you create clang opt "-ivfsoverlay" ymal file,  map virtual path to real path.
   ).strip.gsub(/\s+/, ' ')
   spec.homepage      = 'https://github.com/Cat1237/yaml-vfs'
   spec.license       = 'MIT'

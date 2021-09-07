@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yaml-vfs (0.0.1.pre.beta1)
+    yaml-vfs (0.0.2)
       claide (>= 1.0.2, < 2.0)
       colored2 (~> 3.1)
 

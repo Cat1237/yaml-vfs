@@ -10,13 +10,13 @@ module VFS
 
     attr_reader :framework_path, :real_modules, :real_headers
 
-    def self.new_from_real_headers_dir(framework_path, real_header_dir, real_modules_dir)
+    def self.new_from_real_headers_dir(framework_path, real_modules_dir, real_header_dir)
       raise ArgumentError, 'real_header_dir must set and exist' if real_header_dir.nil? || !real_header_dir.exist?
 
-      files = Pathname.glob(real_header_dir.join('**').join('*')).select do |file|
+      files = Pathname.glob(Pathname(real_header_dir).join('**').join('*')).select do |file|
         HEADER_FILES_EXTENSIONS.include?(file.extname)
       end
-      real_modules = real_modules_dir.glob('module*.modulemap')
+      real_modules = Pathname(real_modules_dir).glob('module*.modulemap')
       new(framework_path, real_modules, files)
     end
 
@@ -24,7 +24,7 @@ module VFS
       @seen = Set.new
       @vfs_writer = YAMLVFSWriter.new
       @real_headers = real_headers
-      @framework_path = framework_path
+      @framework_path = Pathname(framework_path)
       @real_modules = real_modules
     end
 

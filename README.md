@@ -55,6 +55,28 @@ $ vfs yamlwriter --framework-path=<path> --real-headers-dir=<path> --real-module
 - `--real-modules-dir=<path>`: real modules path
 - `--output-path=<path>`: vfs yaml file output path
 
+### Quickstart
+
+To begin gen an yaml VFS file start by create an `FileCollector`:
+
+```ruby
+require 'yaml_vfs'
+modules = ['./module.modulemap', './module.private.modulemap']
+headers_path = ['./A.h', './B.h']
+vfs = VFS::FileCollector.new('./A.framework', modules, headers_path)
+vfs.write_mapping('./vfs_yaml_output_path')
+```
+
+or set use path:
+
+```ruby
+require 'yaml_vfs'
+modules = ['./module.modulemap', './module.private.modulemap']
+headers_path = ['./A.h', './B.h']
+vfs = VFS::FileCollector.new_from_real_headers_dir('./A.framework', './module_path', './headers')
+vfs.write_mapping('./vfs_yaml_output_path')
+```
+
 ## Command Line Tool
 
 Installing the 'yaml-vfs' gem will also install two command-line tool `vfs` which you can use to generate VFS YAML file.
