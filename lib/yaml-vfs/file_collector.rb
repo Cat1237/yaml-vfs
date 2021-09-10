@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
 require 'set'
-require 'yaml-vfs/yaml_vfs'
 
 module VFS
-  # vfs gen
-  class FileCollector
-    HEADER_FILES_EXTENSIONS = %w[.h .hh .hpp .ipp .tpp .hxx .def .inl .inc].freeze
+  HEADER_FILES_EXTENSIONS = %w[.h .hh .hpp .ipp .tpp .hxx .def .inl .inc].freeze
+
+  # vfs file collector entry
+  class FileCollectorEntry
 
     attr_reader :framework_path, :real_modules, :real_headers
 
     def self.new_from_real_headers_dir(framework_path, real_modules_dir, real_header_dir)
       raise ArgumentError, 'real_header_dir must set and exist' if real_header_dir.nil? || !real_header_dir.exist?
+      raise ArgumentError, 'real_modules_dir must set and exist' if real_modules_dir.nil? || !real_modules_dir.exist?
 
       files = Pathname.glob(Pathname(real_header_dir).join('**').join('*')).select do |file|
         HEADER_FILES_EXTENSIONS.include?(file.extname)
@@ -21,17 +22,25 @@ module VFS
     end
 
     def initialize(framework_path, real_modules, real_headers)
-      @seen = Set.new
-      @vfs_writer = YAMLVFSWriter.new
+      raise ArgumentError, 'framework_path must set' if framework_path.nil?
+      raise ArgumentError, 'real_modules and real_headers must set' if real_modules.empty?
+
       @real_headers = real_headers
       @framework_path = Pathname(framework_path)
       @real_modules = real_modules
     end
+  end
+
+  # vfs gen
+  class FileCollector
+    def initialize(entry)
+      raise ArgumentError, 'entry must not empty' if entry.empty?
+
+      @entry = entry
+      @vfs_writer = YAMLVFSWriter.new
+    end
 
     def write_mapping(name)
-      raise ArgumentError, 'framework_path must set' if @framework_path.nil?
-      raise ArgumentError, 'real_headers or real_header_dir one of them must set' if @real_headers.empty?
-
       add_write_file
       @vfs_writer.case_sensitive = false
       path = Pathname(name).expand_path
@@ -44,15 +53,19 @@ module VFS
     private
 
     def add_write_file
-      wirte_f = lambda { |dir, files|
-        paths = @framework_path.join(dir)
+      wirte_f = lambda { |framework_path, dir, files|
+        return if dir.empty?
+
+        paths = framework_path.join(dir)
         files.each do |file|
           path = paths.join(file.basename)
           @vfs_writer.add_file_mapping(path, file)
         end
       }
-      wirte_f.call('Headers', real_headers) unless real_headers.empty?
-      wirte_f.call('Modules', real_modules) unless real_modules.empty?
+      @entry.each do |entry|
+        wirte_f.call(entry.framework_path, 'Headers', entry.real_headers)
+        wirte_f.call(entry.framework_path, 'Modules', entry.real_modules)
+      end
     end
   end
 end

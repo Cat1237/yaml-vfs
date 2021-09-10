@@ -16,10 +16,10 @@ module VFS
     end
   end
 
+  require_relative 'yaml-vfs/yaml_vfs'
   require_relative 'yaml-vfs/version'
   require_relative 'yaml-vfs/utils'
+  require_relative 'yaml-vfs/file_collector'
 
-
-  autoload :FileCollector, 'yaml-vfs/file_collector'
   autoload :Command, 'yaml-vfs/command'
 end
