@@ -1,0 +1,478 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit.app/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "config.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/config.h"
+        },
+        {
+          'type': 'file',
+          'name': "decode.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/decode.h"
+        },
+        {
+          'type': 'file',
+          'name': "demux.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/demux.h"
+        },
+        {
+          'type': 'file',
+          'name': "encode.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/encode.h"
+        },
+        {
+          'type': 'file',
+          'name': "extras.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/extras.h"
+        },
+        {
+          'type': 'file',
+          'name': "format_constants.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/format_constants.h"
+        },
+        {
+          'type': 'file',
+          'name': "mux.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/mux.h"
+        },
+        {
+          'type': 'file',
+          'name': "mux_types.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/mux_types.h"
+        },
+        {
+          'type': 'file',
+          'name': "types.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/Vendor/WebP.framework/Headers/types.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit.app/PrivateHeaders",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CALayer+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Quartz/CALayer+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "CALayer+YYWebImage.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/Categories/CALayer+YYWebImage.h"
+        },
+        {
+          'type': 'file',
+          'name': "MKAnnotationView+YYWebImage.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/Categories/MKAnnotationView+YYWebImage.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSArray+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSArray+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSAttributedString+YYText.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/NSAttributedString+YYText.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSBundle+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSBundle+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSData+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSData+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSDate+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSDate+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSDictionary+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSDictionary+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSKeyedUnarchiver+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSKeyedUnarchiver+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSNotificationCenter+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSNotificationCenter+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSNumber+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSNumber+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSObject+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+YYAddForARC.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSObject+YYAddForARC.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+YYAddForKVO.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSObject+YYAddForKVO.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+YYModel.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Model/NSObject+YYModel.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSParagraphStyle+YYText.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/NSParagraphStyle+YYText.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSString+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSString+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSThread+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSThread+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSTimer+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Foundation/NSTimer+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIApplication+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIApplication+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIBarButtonItem+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIBarButtonItem+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIBezierPath+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIBezierPath+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIButton+YYWebImage.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/Categories/UIButton+YYWebImage.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIColor+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIColor+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIControl+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIControl+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIDevice+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIDevice+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIFont+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIFont+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIGestureRecognizer+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIGestureRecognizer+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIImage+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImageView+YYWebImage.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/Categories/UIImageView+YYWebImage.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIPasteboard+YYText.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/UIPasteboard+YYText.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIScreen+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIScreen+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIScrollView+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIScrollView+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UITableView+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UITableView+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UITextField+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UITextField+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIView+YYAdd.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/UIKit/UIView+YYAdd.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYAnimatedImageView.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/YYAnimatedImageView.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYAsyncLayer.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYAsyncLayer.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYCGUtilities.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/Quartz/YYCGUtilities.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYCache.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Cache/YYCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYClassInfo.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Model/YYClassInfo.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYDiskCache.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Cache/YYDiskCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYDispatchQueuePool.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYDispatchQueuePool.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYFileHash.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYFileHash.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYFrameImage.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/YYFrameImage.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYGestureRecognizer.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYGestureRecognizer.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYImage.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/YYImage.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYImageCache.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/YYImageCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYImageCoder.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/YYImageCoder.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYKVStorage.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Cache/YYKVStorage.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYKeychain.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYKeychain.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYKit.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/YYKit.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYKitMacro.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Base/YYKitMacro.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYLabel.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/YYLabel.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYMemoryCache.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Cache/YYMemoryCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYReachability.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYReachability.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYSentinel.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYSentinel.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYSpriteSheetImage.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/YYSpriteSheetImage.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextArchiver.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/YYTextArchiver.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextAttribute.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/YYTextAttribute.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextContainerView.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextContainerView.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextDebugOption.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextDebugOption.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextEffectWindow.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextEffectWindow.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextInput.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextInput.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextKeyboardManager.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextKeyboardManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextLayout.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextLayout.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextLine.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextLine.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextMagnifier.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextMagnifier.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextParser.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/YYTextParser.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextRubyAnnotation.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/YYTextRubyAnnotation.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextRunDelegate.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/YYTextRunDelegate.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextSelectionView.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/Component/YYTextSelectionView.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextUtilities.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/String/YYTextUtilities.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTextView.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Text/YYTextView.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYThreadSafeArray.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYThreadSafeArray.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYThreadSafeDictionary.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYThreadSafeDictionary.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTimer.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYTimer.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYTransaction.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYTransaction.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYWeakProxy.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Utility/YYWeakProxy.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYWebImageManager.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/YYWebImageManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "YYWebImageOperation.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/YYWebImageOperation.h"
+        },
+        {
+          'type': 'file',
+          'name': "_YYWebImageSetter.h",
+          'external-contents': "/Users/ws/Documents/MyLib/ymalvfs-writer/spec/vfs/Resources/YYKit/YYKit/Image/Categories/_YYWebImageSetter.h"
+        }
+      ]
+    }
+  ]
+}

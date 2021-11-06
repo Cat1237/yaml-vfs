@@ -3,7 +3,7 @@
 module VFS
   class Command
     # vfs yaml file gen cmd
-    class YAMLWriter < Command
+    class Framework < Command
       # summary
       self.summary = 'Virtual the framework and modules dir, and map to real path'
 
@@ -51,8 +51,61 @@ module VFS
       def run
         require 'yaml_vfs'
 
-        entry = VFS::FileCollectorEntry.new_from_real_headers_dir(@framework_path, @real_modules_dir, @real_header_dir)
-        VFS::FileCollector.new([entry]).write_mapping(@output_path)
+        entrys = VFS::FileCollectorEntry.entrys_from_framework_dir(@framework_path, @real_header_dir, @real_modules_dir)
+        VFS::FileCollector.new(entrys).write_mapping(@output_path)
+      end
+    end
+    class Target < Command
+      # summary
+      self.summary = 'Virtual the target public and private headers, and map to real path'
+
+      self.description = <<-DESC
+        Gen VFS Yaml file. To map target virtual path to real path.
+      DESC
+
+      self.arguments = [
+        # target_p, public_header, private_header
+        CLAide::Argument.new('--target-path', true),
+        CLAide::Argument.new('--public-headers-dir', true),
+        CLAide::Argument.new('--private-headers-dir', true),
+        CLAide::Argument.new('--output-path', false)
+      ]
+
+      def initialize(argv)
+        super
+
+        target_path = argv.option('target-path')
+        @target_path = Pathname(target_path) unless target_path.nil?
+        public_headers_dir = argv.option('public-headers-dir')
+        @public_headers_dir = Pathname(public_headers_dir) unless public_headers_dir.nil?
+        private_headers_dir = argv.option('private-headers-dir')
+        @private_headers_dir = Pathname(private_headers_dir) unless private_headers_dir.nil?
+        output_path = argv.option('output-path')
+        @output_path = output_path.nil? ? Pathname('.') : Pathname(output_path)
+      end
+
+      def validate!
+        super
+        help! 'must set --target-path' if @target_path.nil?
+        help! 'must set --public-headers-dir' if @public_headers_dir.nil?
+        help! 'must set --private-headers-dir' if @private_headers_dir.nil?
+      end
+
+      # help
+      def self.options
+        [
+          ['--target-pathh=<path>', 'target path'],
+          ['--public-headers-dir=<path>', 'real public headers path'],
+          ['--private-headers-dir=<path>', 'real private headers path'],
+          ['--output-path=<path>', 'vfs yaml file output path']
+        ].concat(super)
+      end
+
+      def run
+        require 'yaml_vfs'
+
+        entrys = VFS::FileCollectorEntry.entrys_from_target_dir(@target_path, @public_headers_dir, @private_headers_dir)
+        VFS::FileCollector.new(entrys).write_mapping(@output_path)
       end
     end
   end
