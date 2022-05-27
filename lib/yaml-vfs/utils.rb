@@ -12,11 +12,11 @@ end
 String.class_eval do
   def indent(count, char = ' ')
     gsub(/([^\n]*)(\n|$)/) do
-      last_iteration = ($1 == '' && $2 == '')
+      last_iteration = (Regexp.last_match(1) == '' && Regexp.last_match(2) == '')
       line = ''
       line << (char * count) unless last_iteration
-      line << $1
-      line << $2
+      line << Regexp.last_match(1)
+      line << Regexp.last_match(2)
       line
     end
   end

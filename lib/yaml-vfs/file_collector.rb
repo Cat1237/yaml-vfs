@@ -5,7 +5,6 @@ require 'set'
 module VFS
   HEADER_FILES_EXTENSIONS = %w[.h .hh .hpp .ipp .tpp .hxx .def .inl .inc].freeze
   VFS_FILES_EXTENSIONS = %w[.yaml .yml .json].freeze
-
   # vfs file collector entry
   class FileCollectorEntry
     attr_reader :real_path, :virtual_path
@@ -18,31 +17,22 @@ module VFS
     end
 
     def self.entrys_from_framework(framework_path, public_headers, private_headers, real_modules)
-      entrys = []
-      unless public_headers.empty?
-        entrys += public_headers.map do |header|
-          v_p = File.join(framework_path, 'Headers', File.basename(header))
-          new(header, v_p)
+      entrys = {}
+      entrys['Headers'] = public_headers unless public_headers.empty?
+      entrys['PrivateHeaders'] = private_headers unless private_headers.empty?
+      entrys['Modules'] = real_modules unless real_modules.empty?
+
+      entrys.flat_map do |key, values|
+        values.map do |path|
+          v_p = File.join(framework_path, key, File.basename(path))
+          new(path, v_p)
         end
       end
-      unless private_headers.empty?
-        entrys += private_headers.map do |header|
-          v_p = File.join(framework_path, 'PrivateHeaders', File.basename(header))
-          new(header, v_p)
-        end
-      end
-      unless real_modules.empty?
-        entrys += real_modules.map do |m|
-          v_p = File.join(framework_path, 'Modules', File.basename(m))
-          new(m, v_p)
-        end
-      end
-      entrys
     end
 
     def self.entrys_from_framework_dir(framework_path, real_header_dir, real_modules_dir)
-      raise ArgumentError, 'real_header must set and exist' if real_header_dir.nil? || !File.exist?(real_header_dir)
-      raise ArgumentError, 'real_modules must set and exist' if real_header_dir.nil? || !File.exist?(real_header_dir)
+      raise ArgumentError, 'real_header must set and exist' unless File.exist?(real_header_dir || '')
+      raise ArgumentError, 'real_modules must set and exist' unless File.exist?(real_header_dir || '')
 
       real_header_dir = File.join(real_header_dir, '**', '*')
       real_headers = Pathname.glob(real_header_dir).select { |file| HEADER_FILES_EXTENSIONS.include?(file.extname) }
@@ -51,20 +41,16 @@ module VFS
     end
 
     def self.entrys_from_target(target_path, public_headers, private_headers)
-      entrys = []
-      unless private_headers.empty?
-        entrys += private_headers.map do |header|
-          v_p = File.join(target_path, 'PrivateHeaders', File.basename(header))
-          new(header, v_p)
+      entrys = {}
+      entrys['Headers'] = public_headers unless public_headers.empty?
+      entrys['PrivateHeaders'] = private_headers unless private_headers.empty?
+
+      entrys.flat_map do |key, values|
+        values.map do |path|
+          v_p = File.join(target_path, key, File.basename(path))
+          new(path, v_p)
         end
       end
-      unless public_headers.empty?
-        entrys += public_headers.map do |header|
-          v_p = File.join(target_path, 'Headers', File.basename(header))
-          new(header, v_p)
-        end
-      end
-      entrys
     end
 
     def self.entrys_from_target_dir(target_path, public_dir, private_dir)
@@ -83,29 +69,41 @@ module VFS
 
   # vfs gen
   class FileCollector
+    EMPTY_VFS_FILE = '{"case-sensitive":"false","roots":[],"version":0}'
+    private_constant :EMPTY_VFS_FILE
     def initialize(entrys)
       @entrys = entrys || []
       @vfs_writer = YAMLVFSWriter.new
     end
 
     def write_mapping(name)
-      add_write_file
-      @vfs_writer.case_sensitive = false
+      stream = add_write_file
       path = Pathname(name).expand_path
       unless VFS_FILES_EXTENSIONS.include?(File.extname(path))
         path.mkpath unless path.exist?
         path = path.join('all-product-headers.yaml')
       end
-      stream = @vfs_writer.write
-      File.open(path, 'w') { |f| f.write(stream) }
+      update_changed_file(path, stream)
     end
 
     private
 
-    def add_write_file
-      @entrys.each do |entry|
-        @vfs_writer.add_file_mapping(entry.virtual_path, entry.real_path)
+    def update_changed_file(path, contents)
+      if path.exist?
+        content_stream = StringIO.new(contents)
+        identical = File.open(path, 'rb') { |f| FileUtils.compare_stream(f, content_stream) }
+        return if identical
       end
+      path.dirname.mkpath
+      File.open(path, 'w') { |f| f.write(contents) }
+    end
+
+    def add_write_file
+      return EMPTY_VFS_FILE if @entrys.empty?
+
+      @entrys.each { |entry| @vfs_writer.add_file_mapping(entry.virtual_path, entry.real_path) }
+      @vfs_writer.case_sensitive = false
+      @vfs_writer.write
     end
   end
 end
